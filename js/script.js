@@ -1,13 +1,12 @@
-// DOM Elements
-const navMenu = document.querySelector('.nav-menu');
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelectorAll('.nav-link');
-const header = document.querySelector('header');
-const scrollTopBtn = document.querySelector('.scroll-to-top');
-const progressBars = document.querySelectorAll('.progress-bar');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-const contactForm = document.getElementById('contactForm');
+// VMVM Mimarisi - Ana Uygulama Dosyası
+import ViewManager from '../views/ViewManager.js';
+
+// Sayfa yüklendiğinde
+document.addEventListener('DOMContentLoaded', () => {
+    // ViewManager oluştur ve bileşenleri yükle
+    const viewManager = new ViewManager();
+    viewManager.loadAllComponents();
+});
 
 // Mobile Menu Toggle
 menuToggle.addEventListener('click', () => {

@@ -1,6 +1,25 @@
-# Modern Yazılımcı Portfolyo Sitesi
+# Modern Yazılımcı Portfolyo Sitesi - VMVM Mimarisi ile
 
-Bu proje, yazılım geliştiriciler için tasarlanmış modern, şık ve sade bir portfolyo web sitesidir.
+Bu proje, yazılım geliştiriciler için tasarlanmış modern, şık ve sade bir portfolyo web sitesidir. VMVM (View-Model-ViewModel) mimari desenini kullanarak modüler ve bakımı kolay bir yapıda oluşturulmuştur.
+
+## VMVM Mimari Yapısı
+
+VMVM, web uygulamalarında kod organizasyonunu ve bakımını kolaylaştırmak için kullanılan bir mimari desendir. Bu mimari, uygulamayı şu katmanlara ayırır:
+
+### 1. Model (Veri Katmanı)
+- `models/` dizininde bulunur
+- Verilerin yapısını ve temel veri işlemlerini tanımlar
+- Uygulama verilerinin nasıl temsil edileceğini belirler
+
+### 2. ViewModel (Veri İşleme Katmanı)
+- `viewmodels/` dizininde bulunur
+- Model verilerini View'lerin kullanabileceği şekilde hazırlar
+- Veri manipülasyonu, dönüşümü ve iş mantığını içerir
+
+### 3. View (Görünüm Katmanı)
+- `views/` dizininde bulunur
+- Kullanıcı arayüzünü oluşturur ve kullanıcı etkileşimlerini yönetir
+- ViewModels üzerinden verilere erişir ve görüntüler
 
 ## Özellikler
 
@@ -17,21 +36,50 @@ Bu proje, yazılım geliştiriciler için tasarlanmış modern, şık ve sade bi
 - Scroll-to-top butonu
 - Mobil-dostu navigasyon
 
+## Proje Yapısı
+
+```
+website/
+├── index.html                # Ana HTML sayfası
+├── README.md                 # Proje dokümantasyonu
+├── dosyalar/                 # Dosyalar (CV, vb.)
+├── images/                   # Görseller
+├── js/
+│   └── script.js             # Ana JavaScript dosyası (modül import/export'ları içerir)
+├── styles/
+│   └── style.css             # CSS stil dosyası
+├── models/                   # Veri modelleri
+│   ├── ProjectModel.js
+│   ├── SkillModel.js
+│   └── ContactModel.js
+├── viewmodels/               # Veri işleme katmanı
+│   ├── ProjectsViewModel.js
+│   ├── SkillsViewModel.js
+│   └── ContactViewModel.js
+└── views/                    # Görünüm katmanı
+    ├── NavigationView.js
+    ├── ProjectsView.js
+    ├── SkillsView.js
+    ├── ContactView.js
+    └── AppView.js
+```
+
 ## Teknolojiler
 
 - HTML5
 - CSS3 (Saf CSS, framework kullanılmadan)
-- JavaScript (Vanilla JS, kütüphane kullanılmadan)
+- JavaScript (ES6 Modules)
+- VMVM Mimarisi
 - Font Awesome ikonları
 - Google Fonts
 
 ## Nasıl Kullanılır
 
 1. Repo'yu yerel bilgisayarınıza klonlayın veya dosyaları indirin
-2. `images` klasörüne kendi proje görselleri ve profil fotoğrafınızı ekleyin
-3. `index.html` dosyasındaki metin içeriklerini kendinize göre düzenleyin
-4. Sosyal medya bağlantılarını ve iletişim bilgilerinizi güncelleyin
-5. Projeleri kendi projelerinizle değiştirin
+2. **Önemli**: JavaScript modüllerinin çalışması için projeyi bir web sunucusu üzerinden çalıştırın (yerel dosya sisteminde çalıştırıldığında CORS kısıtlamaları nedeniyle modüller yüklenemeyebilir)
+3. `images` klasörüne kendi proje görselleri ve profil fotoğrafınızı ekleyin
+4. Veri değişiklikleri için `models/` ve `viewmodels/` klasörlerindeki dosyaları düzenleyin
+5. Görünüm ve davranış değişiklikleri için `views/` klasöründeki dosyaları düzenleyin
 
 ## Görsel Ekleme
 
@@ -60,6 +108,12 @@ Bu proje, yazılım geliştiriciler için tasarlanmış modern, şık ve sade bi
 `index.html` dosyasındaki Google Fonts bağlantısını ve `styles/style.css` dosyasındaki font-family özelliğini değiştirerek yazı tipini özelleştirebilirsiniz.
 
 ## Geliştirme
+
+VMVM mimarisi sayesinde yeni özellikler eklemek veya mevcut özellikleri değiştirmek çok daha modüler hale gelmiştir:
+
+1. Yeni bir veri modeli gerekiyorsa, `models/` dizininde oluşturun
+2. Veri işleme mantığı için `viewmodels/` dizininde ilgili ViewModel'i güncelleyin
+3. Kullanıcı arayüzü değişiklikleri için `views/` dizininde ilgili View'ı düzenleyin
 
 Bu projede yapabilecek bazı geliştirmeler:
 
